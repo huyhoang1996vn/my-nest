@@ -71,3 +71,28 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+# Module
+
+provides metadata that Nest makes use of to organize the application structure.
+
+# Controller
+
+Controllers are responsible for handling incoming requests and returning responses to the client.
+
+# Provider ( Service and so on )
+
+Providers are a fundamental concept in Nest. Many of the basic Nest classes may be treated as a provider – services, repositories, factories, helpers, and so on.
+
+# DTO (Data Tranfer Ojbect)
+DTO is an object that defines how the data will be sent over the network
+
+## Validation
+https://docs.nestjs.com/techniques/validation
+
+# Async function
+https://docs.nestjs.com/controllers#asynchronicity
+
+# Mongoose functions
+
+https://mongoosejs.com/docs/api/model.html#model_Model-findOneAndUpdate
