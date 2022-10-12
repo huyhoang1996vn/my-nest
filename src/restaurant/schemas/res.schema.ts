@@ -18,6 +18,9 @@ export class Restaurant {
 
   @Prop()
   email: string;
+
+  @Prop()
+  image: string;
 }
 
 export const RestaurantSchema = SchemaFactory.createForClass(Restaurant);

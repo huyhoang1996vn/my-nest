@@ -96,3 +96,9 @@ https://docs.nestjs.com/controllers#asynchronicity
 # Mongoose functions
 
 https://mongoosejs.com/docs/api/model.html#model_Model-findOneAndUpdate
+
+
+# Validator
+https://github.com/typestack/class-validator
+
+

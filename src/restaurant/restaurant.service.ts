@@ -12,8 +12,19 @@ export class RestaurantService {
         private resModel: Model<Restaurant>
     ) { }
 
-    async findAll(): Promise<Restaurant[]> {
-        const results = await this.resModel.find();
+    async findAll(query: any): Promise<Restaurant[]> {
+        const filter = 'name' in query ? {
+            name: {
+                $regex: query.name,
+                $options: 'i'
+            }
+        } : {}
+        const limit = query.limit || 2;
+        const curentPage = query.page || 1;
+        const skip = limit * (curentPage - 1)
+
+        
+        const results = await this.resModel.find(filter, null, {'limit': limit, 'skip': skip});
         return results;
     }
     async create(res: Restaurant) {
