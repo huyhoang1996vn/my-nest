@@ -1,5 +1,7 @@
 import { S3 } from 'aws-sdk';
 import { config } from 'aws-sdk';
+import { JwtService } from '@nestjs/jwt';
+
 
 export class APIFeatures{
     constructor(){}
@@ -19,6 +21,16 @@ export class APIFeatures{
         console.log("LOGGER uploadResult ", uploadResult);
         return uploadResult
     }
+
+    async generateToken(userId: string, jwtService: JwtService) {
+        const payload = {id: userId}
+        // const token = jwtService.sign(payload,  {
+        //     secret: process.env.JWT_SECRET,
+        // })
+        const token = jwtService.sign(payload)
+        return token
+    }
+
 }
 
 

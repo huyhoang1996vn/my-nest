@@ -16,9 +16,9 @@ export class ResDto {
 
     image: string;
 
-  }
+}
 
-  export class UpdateResDto {
+export class UpdateResDto {
     _id: mongooseSchema.Types.ObjectId;
     name: string;
     address: string;

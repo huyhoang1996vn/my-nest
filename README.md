@@ -72,6 +72,11 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](LICENSE).
 
+# Ref
+
+
+
+
 # Module
 
 provides metadata that Nest makes use of to organize the application structure.
@@ -90,15 +95,31 @@ DTO is an object that defines how the data will be sent over the network
 ## Validation
 https://docs.nestjs.com/techniques/validation
 
+
 # Async function
 https://docs.nestjs.com/controllers#asynchronicity
 
-# Mongoose functions
 
+# Mongoose functions
 https://mongoosejs.com/docs/api/model.html#model_Model-findOneAndUpdate
 
 
 # Validator
 https://github.com/typestack/class-validator
 
+
+# Multipart form
+https://docs.nestjs.com/techniques/file-upload
+
+
+# S3 
+https://www.npmjs.com/package/aws-sdk
+Example: https://wanago.io/2020/08/03/api-nestjs-uploading-public-files-to-amazon-s3/
+
+
+# JWT
+https://github.com/nestjs/jwt
+
+# Hasing and Encrytion
+https://docs.nestjs.com/security/encryption-and-hashing#hashing
 
