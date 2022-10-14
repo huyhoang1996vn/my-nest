@@ -123,3 +123,8 @@ https://github.com/nestjs/jwt
 # Hasing and Encrytion
 https://docs.nestjs.com/security/encryption-and-hashing#hashing
 
+
+
+# Learn
+promise
+super() in herrict 

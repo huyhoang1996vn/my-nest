@@ -1,8 +1,12 @@
-import { Body, Controller, Get, Post, Param, Patch, Delete, Query, UseInterceptors, UploadedFile } from '@nestjs/common';
+import { Body, Controller, Get, Post, Param, Patch, Delete, Query, UseInterceptors, UploadedFile, UseGuards, Request } from '@nestjs/common';
 import { RestaurantService } from './restaurant.service';
 import { ResDto, UpdateResDto } from './dto/res.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { APIFeatures } from 'src/utils/apiFeature.utils';
+import { AuthGuard } from '@nestjs/passport';
+import { JwtAuthGuard } from 'src/auth/jwt.auth.guard';
+import { CurrentUser } from 'src/auth/decorator/user.decorator';
+import { User } from 'src/auth/schemas/auth.schemas';
 
 
 
@@ -15,17 +19,23 @@ export class RestaurantController {
     
     @Get()
     async getAll(
-        @Query() query
+        @Query() query,
+        @Request() req,
     ){
         console.log("====== Query ", query);
+        console.log("====== req.user ", req.user);
         return this.resService.findAll(query)
     }
+
     @Post()
+    @UseGuards(AuthGuard('jwt'))
     async create(
-        @Body()
-        resDto: ResDto
+        @Body() resDto: ResDto,
+        @CurrentUser() user
     ){
+        console.log("====== user ", user);
         console.log("LOGGER resDto ", resDto);
+        resDto.user = user
         return this.resService.create(resDto)
     }
 

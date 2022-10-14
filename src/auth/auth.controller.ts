@@ -7,6 +7,7 @@ export class AuthController {
     constructor(
         private authService: AuthService
     ){}
+    
     @Post('signup')
     async signUp(
         @Body() userDto: UserDto,
@@ -24,6 +25,6 @@ export class AuthController {
         @Body() userDto: LoginDto,
     ){
         console.log("LOOGETR body ", userDto);
-        return this.authService.login(userDto);
+        return this.authService.login(userDto.email, userDto.password);
     }
 }

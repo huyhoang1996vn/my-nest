@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
+import { HttpException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { User, UserSchema } from './schemas/auth.schemas';
 import mongoose from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
@@ -29,13 +29,28 @@ export class AuthService {
         return this.userModel.exists(query)
     }
 
-    async login(user: User) {
-        const userDB = await this.userModel.findOne({email: user.email})
+    async getUserById(_id:string){
+        try {
+            const results = await this.userModel.findById({ _id }).exec();
+            console.log("========= results ", results);
+            if (!results) {
+                console.log(" In throw");
+                throw new HttpException('Forbidden', 403);
+            }
+            return results;
+        } catch (e) {
+            console.log("Exception e ", e);
+            throw new NotFoundException("Not found user.");
+        }
+    }
+
+    async login(email: string, password: string) {
+        const userDB = await this.userModel.findOne({email: email})
         if (!userDB){
             throw new UnauthorizedException("Not found user.");
         }
 
-        const isMatch = await bcrypt.compare(user.password, userDB.password);
+        const isMatch = await bcrypt.compare(password, userDB.password);
         console.log("+==== isMatch ", isMatch);
         if (!isMatch){
             throw new UnauthorizedException("Password incorrect.");

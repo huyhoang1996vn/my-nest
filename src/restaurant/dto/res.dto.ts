@@ -1,5 +1,6 @@
 import { IsEmail, IsNotEmpty, IsOptional } from 'class-validator';
 import { Schema as mongooseSchema }  from 'mongoose';
+import { User } from 'src/auth/schemas/auth.schemas';
 
 export class ResDto {
     _id: mongooseSchema.Types.ObjectId;
@@ -15,6 +16,7 @@ export class ResDto {
     email: string;
 
     image: string;
+    user: User;
 
 }
 
@@ -25,4 +27,5 @@ export class UpdateResDto {
     @IsEmail({}, {message: "Invalid email"})
     email: string;
     image: string;
+    user: User;
  }  
