@@ -79,15 +79,23 @@ Nest is [MIT licensed](LICENSE).
 
 # Module
 
-provides metadata that Nest makes use of to organize the application structure.
+provides metadata that Nest makes use of to organize the application structure. It's  as an effective way to organize your components.
+<a href="https://docs.nestjs.com/modules" target="_blank"><img src="https://docs.nestjs.com/assets/Modules_1.png" alt="NPM Version" /></a>
+
+- providers	- the providers that will be instantiated by the Nest injector and that may be shared at least across this module
+- controllers	- the set of controllers defined in this module which have to be instantiated
+- imports	- the list of imported modules that export the providers which are required in this module
+- exports	- the subset of providers that are provided by this module and should be available in other modules which import this module. You can use either the provider itself or just its token (provide value)
 
 # Controller
 
 Controllers are responsible for handling incoming requests and returning responses to the client.
+<a href="https://docs.nestjs.com/controllers" target="_blank"><img src="https://docs.nestjs.com//assets/Controllers_1.png" alt="NPM Version" /></a>
 
 # Provider ( Service and so on )
 
-Providers are a fundamental concept in Nest. Many of the basic Nest classes may be treated as a provider – services, repositories, factories, helpers, and so on.
+Many of the basic Nest classes may be treated as a provider – services, repositories, factories, helpers, and so on. The main idea of a provider is that it can be injected as a dependency
+
 
 # DTO (Data Tranfer Ojbect)
 DTO is an object that defines how the data will be sent over the network
@@ -128,3 +136,8 @@ https://docs.nestjs.com/security/encryption-and-hashing#hashing
 # Learn
 promise
 super() in herrict 
+
+
+# Ordering middleware - guard - interceptor - pipe - filter
+
+https://docs.nestjs.com/faq/request-lifecycle
