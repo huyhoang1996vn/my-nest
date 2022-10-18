@@ -141,3 +141,12 @@ super() in herrict
 # Ordering middleware - guard - interceptor - pipe - filter
 
 https://docs.nestjs.com/faq/request-lifecycle
+
+
+# ORM 
+https://typeorm.io/
+
+# TypeOrm CLI
+https://github.com/typeorm/typeorm/blob/master/docs/using-cli.md#installing-cli
+
+

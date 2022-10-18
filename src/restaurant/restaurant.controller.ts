@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Param, Patch, Delete, Query, UseInterceptors, UploadedFile, UseGuards, Request } from '@nestjs/common';
+import { Body, Controller, Get, Post, Param, Patch, Delete, Query, UseInterceptors, UploadedFile, UseGuards, Request, SetMetadata } from '@nestjs/common';
 import { RestaurantService } from './restaurant.service';
 import { ResDto, UpdateResDto } from './dto/res.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -6,7 +6,9 @@ import { APIFeatures } from 'src/utils/apiFeature.utils';
 import { AuthGuard } from '@nestjs/passport';
 import { JwtAuthGuard } from 'src/auth/jwt.auth.guard';
 import { CurrentUser } from 'src/auth/decorator/user.decorator';
-import { User } from 'src/auth/schemas/auth.schemas';
+import { Role, User } from 'src/auth/schemas/auth.schemas';
+import { RolesGuard } from 'src/auth/roles.guard';
+import { Roles } from 'src/auth/decorator/role.decorator';
 
 
 
@@ -18,6 +20,9 @@ export class RestaurantController {
     ){}
     
     @Get()
+    @UseGuards(RolesGuard)
+    @SetMetadata('roles',['admin','superadmin'])
+    // @Roles("admin")
     async getAll(
         @Query() query,
         @Request() req,
