@@ -56,7 +56,7 @@ export class AuthService {
             throw new UnauthorizedException("Password incorrect.");
         }
 
-        const token = await this.apiFeatures.generateToken(userDB._id, this.jwtService);
+        const token = await this.apiFeatures.generateToken(userDB._id, userDB.role, this.jwtService);
         return {profile: userDB, token: token}
     }
 

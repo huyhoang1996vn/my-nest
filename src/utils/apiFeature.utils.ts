@@ -22,8 +22,8 @@ export class APIFeatures{
         return uploadResult
     }
 
-    async generateToken(userId: string, jwtService: JwtService) {
-        const payload = {id: userId}
+    async generateToken(userId: string, role: string, jwtService: JwtService) {
+        const payload = {id: userId, role: role}
         // const token = jwtService.sign(payload,  {
         //     secret: process.env.JWT_SECRET,
         // })
