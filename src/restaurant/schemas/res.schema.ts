@@ -26,6 +26,10 @@ export class Restaurant {
   @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'User'},)
   // Ref: https://mongoosejs.com/docs/populate.html
   user: User
+
+  @Prop([{type: mongoose.Schema.Types.ObjectId, ref: 'User'}])
+  // Ref: https://mongoosejs.com/docs/populate.html
+  clients: User[]
 }
 
 export const RestaurantSchema = SchemaFactory.createForClass(Restaurant);

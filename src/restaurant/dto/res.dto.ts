@@ -17,6 +17,8 @@ export class ResDto {
 
     image: string;
     user: User;
+    clients: User[];
+
 
 }
 
@@ -28,4 +30,5 @@ export class UpdateResDto {
     email: string;
     image: string;
     user: User;
+    clients: User[];
  }  
