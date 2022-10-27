@@ -20,9 +20,9 @@ export class RestaurantController {
     ){}
     
     @Get()
-    @UseGuards(RolesGuard)
-    @SetMetadata('roles',['admin','superadmin'])
+    @SetMetadata('roles',['admin','user'])
     // @Roles("admin")
+    @UseGuards(AuthGuard('jwt'), RolesGuard)
     async getAll(
         @Query() query,
         @Request() req,
