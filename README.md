@@ -152,3 +152,10 @@ https://github.com/typeorm/typeorm/blob/master/docs/using-cli.md#installing-cli
 # Test
 
 npm run test -- auth.service.spec.ts
+
+
+
+heroku logs --tail
+heroku create my-nest
+heroku git:remote -a my-nest
+git push heroku master
