@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
-import { APIFeatures } from 'src/utils/apiFeature.utils';
+import { APIFeatures } from '../utils/apiFeature.utils';
 
 @Injectable()
 export class AuthService {

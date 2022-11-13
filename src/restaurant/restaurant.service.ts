@@ -33,11 +33,11 @@ export class RestaurantService {
     }
     async findById(_id: string): Promise<Restaurant> {
         try {
-            const results = await this.resModel.findById({ _id }).exec();
+            const results = await this.resModel.findById({ _id });
             console.log("========= results ", results);
             if (!results) {
                 console.log(" In throw");
-                throw new HttpException('Forbidden', 403);
+                throw new HttpException('Not found restaurant in DB', 404);
             }
             return results;
         } catch (e) {

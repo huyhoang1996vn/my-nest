@@ -16,7 +16,7 @@ console.log("== __dirname ", __dirname);
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: ['.env.development.local',],
+      envFilePath: ['.env.production',],
       isGlobal: true
     }), 
     TypeOrmModule.forRoot({

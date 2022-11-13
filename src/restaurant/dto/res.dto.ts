@@ -1,6 +1,6 @@
 import { IsEmail, IsNotEmpty, IsOptional } from 'class-validator';
 import { Schema as mongooseSchema }  from 'mongoose';
-import { User } from 'src/auth/schemas/auth.schemas';
+import { User } from '../../auth/schemas/auth.schemas';
 
 export class ResDto {
     _id: mongooseSchema.Types.ObjectId;

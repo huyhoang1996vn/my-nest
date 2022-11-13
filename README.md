@@ -73,8 +73,7 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 Nest is [MIT licensed](LICENSE).
 
 # Ref
-
-
+https://github.com/ghulamabbas2/restaurants_api
 
 
 # Module
@@ -150,3 +149,6 @@ https://typeorm.io/
 https://github.com/typeorm/typeorm/blob/master/docs/using-cli.md#installing-cli
 
 
+# Test
+
+npm run test -- auth.service.spec.ts

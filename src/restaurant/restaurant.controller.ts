@@ -2,13 +2,13 @@ import { Body, Controller, Get, Post, Param, Patch, Delete, Query, UseIntercepto
 import { RestaurantService } from './restaurant.service';
 import { ResDto, UpdateResDto } from './dto/res.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { APIFeatures } from 'src/utils/apiFeature.utils';
+import { APIFeatures } from '../utils/apiFeature.utils';
 import { AuthGuard } from '@nestjs/passport';
-import { JwtAuthGuard } from 'src/auth/jwt.auth.guard';
-import { CurrentUser } from 'src/auth/decorator/user.decorator';
-import { Role, User } from 'src/auth/schemas/auth.schemas';
-import { RolesGuard } from 'src/auth/roles.guard';
-import { Roles } from 'src/auth/decorator/role.decorator';
+import { JwtAuthGuard } from '../auth/jwt.auth.guard';
+import { CurrentUser } from '../auth/decorator/user.decorator';
+import { Role, User } from '../auth/schemas/auth.schemas';
+import { RolesGuard } from '../auth/roles.guard';
+import { Roles } from '../auth/decorator/role.decorator';
 
 
 
@@ -33,14 +33,13 @@ export class RestaurantController {
     }
 
     @Post()
-    @UseGuards(AuthGuard('jwt'))
     async create(
         @Body() resDto: ResDto,
         @CurrentUser() user
     ){
-        console.log("====== user ", user);
+        // console.log("====== user ", user);
         console.log("LOGGER resDto ", resDto);
-        resDto.user = user
+        // resDto.user = user
         return this.resService.create(resDto)
     }
 
