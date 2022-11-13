@@ -20,9 +20,6 @@ export class RestaurantController {
     ){}
     
     @Get()
-    @UseGuards(RolesGuard)
-    @SetMetadata('roles',['admin','superadmin'])
-    // @Roles("admin")
     async getAll(
         @Query() query,
         @Request() req,
@@ -42,7 +39,10 @@ export class RestaurantController {
         // resDto.user = user
         return this.resService.create(resDto)
     }
-
+    
+    @UseGuards(RolesGuard)
+    @SetMetadata('roles',['admin','superadmin'])
+    // @Roles("admin")
     @Get(':id')
     async findOne(@Param() params){
         console.log(params.id);
