@@ -20,30 +20,30 @@ export class RestaurantController {
     ){}
     
     @Get()
-    @UseGuards(RolesGuard)
-    @SetMetadata('roles',['admin','superadmin'])
-    // @Roles("admin")
     async getAll(
         @Query() query,
         @Request() req,
-    ){
-        console.log("====== Query ", query);
-        console.log("====== req.user ", req.user);
-        return this.resService.findAll(query)
-    }
-
-    @Post()
-    async create(
-        @Body() resDto: ResDto,
-        @CurrentUser() user
-    ){
-        // console.log("====== user ", user);
-        console.log("LOGGER resDto ", resDto);
-        // resDto.user = user
-        return this.resService.create(resDto)
-    }
-
-    @Get(':id')
+        ){
+            console.log("====== Query ", query);
+            console.log("====== req.user ", req.user);
+            return this.resService.findAll(query)
+        }
+        
+        @Post()
+        async create(
+            @Body() resDto: ResDto,
+            @CurrentUser() user
+            ){
+                // console.log("====== user ", user);
+                console.log("LOGGER resDto ", resDto);
+                // resDto.user = user
+                return this.resService.create(resDto)
+            }
+            
+        @Get(':id')
+        @UseGuards(RolesGuard)
+        @SetMetadata('roles',['admin','superadmin'])
+        // @Roles("admin")
     async findOne(@Param() params){
         console.log(params.id);
         return this.resService.findById(params.id);
