@@ -159,3 +159,4 @@ heroku logs --tail
 heroku create my-nest
 heroku git:remote -a my-nest
 git push heroku master
+heroku local web
